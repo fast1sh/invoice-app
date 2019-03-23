@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import Header from "../header";
+import ItemPage from "../item-page";
 import './app.css';
 
 export default class App extends Component {
   render() {
     return (
-      <Header />
+      <div className="app">
+        <Header />
+        <ItemPage />
+      </div>
     )
   }
 };
