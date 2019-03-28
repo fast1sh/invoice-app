@@ -7,6 +7,12 @@
   padding-left: 0;
 }
 
+@media (max-width: 576px) {
+  .navbar {
+    flex-direction: column;
+  }
+}
+
 .nav-link {
   color: #7b7777;
   font-size: 18px;

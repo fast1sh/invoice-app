@@ -10,7 +10,7 @@ const ItemTable = (props) => {
           <th className="thead-item">#</th>
           <th className="thead-item">Name</th>
           <th className="thead-item">Adress</th>
-          <th className="thead-item">Phone</th>
+          <th className="thead-item">Number</th>
         </tr>
       </thead>
       <tbody>
