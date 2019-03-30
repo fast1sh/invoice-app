@@ -15,5 +15,13 @@ export default class InvoiceAppService {
       adress: '353 Rochester St, Rialto FL 43260',
       number: '555-354-2342'
     }
-  ]
-}
+  ];
+
+  getCustomers = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this.customers);
+      }, 700);
+    })
+  };
+};
