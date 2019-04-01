@@ -3,10 +3,6 @@ import { Table } from "react-bootstrap";
 import './item-table.css';
 import { ItemTableHeader, ItemTableBody } from "../item-table-components";
 
-const customersTableLabels = ['#', 'Name', 'Adress', 'Number'];
-
-
-
 const customers = [
   {
     name: 'Mark Benson',
@@ -28,14 +24,16 @@ const customers = [
 
 
 const ItemTable = (props) => {
+  console.log(props);
+  const { items, labels } = props;
 
   return (
     <Table>
       <thead>
-        { ItemTableHeader(customersTableLabels) }
+        { ItemTableHeader(labels) }
       </thead>
       <tbody>
-        { ItemTableBody(customers) }
+        { ItemTableBody(items) }
       </tbody>
     </Table>
   )

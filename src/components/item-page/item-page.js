@@ -8,15 +8,15 @@ const ItemPage = (props) => {
     <Container>
       <Row className="mt-5 mb-4" noGutters>
         <Col className="d-flex" md="auto">
-          <h2 className="page-title">Customer List</h2>
-          <Button variant="outline-dark">Create</Button>
+          <h2 className="page-title">{props.title}</h2>
+          <Button variant="outline-dark">Add</Button>
         </Col>
         <Col md="auto">
         </Col>
       </Row>
       <Row>
         <Col>
-          <ItemTable />
+          { props.children }
         </Col>
       </Row>
     </Container>

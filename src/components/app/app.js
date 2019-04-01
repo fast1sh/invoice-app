@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "../header";
-import ItemPage from "../item-page";
+import { CustomerPage } from "../pages";
 import './app.css';
 
 export default class App extends Component {
@@ -8,7 +8,7 @@ export default class App extends Component {
     return (
       <div className="app">
         <Header />
-        <ItemPage />
+        <CustomerPage />
       </div>
     )
   }
