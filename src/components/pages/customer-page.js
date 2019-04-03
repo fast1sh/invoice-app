@@ -1,6 +1,7 @@
 import React from "react";
 import ItemPage from "../item-page";
 import ItemTable from "../item-table";
+import { connect } from "react-redux";
 
 const customerTableLabels = ['#', 'Name', 'Adress', 'Number'];
 
@@ -30,4 +31,12 @@ const CustomerPage = (props) => {
   )
 };
 
-export default CustomerPage;
+const mapStateToProps = ({customers, loading, error}) => {
+  return { customers, loading, error };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerPage);
