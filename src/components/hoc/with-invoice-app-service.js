@@ -1,5 +1,5 @@
 import React from "react";
-import { InvoiceAppServiceConsumer } from "../../services/invoice-app-service";
+import { InvoiceAppServiceConsumer } from "../../components/invoice-app-service-context";
 
 const withInvoiceAppService = () => (Wrapped) => {
   return (props) => {
