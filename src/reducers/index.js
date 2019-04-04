@@ -23,6 +23,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         error: action.payload
       };
+    case 'CUSTOMER_DELETED':
+      return {
+        ...state,
+        customers: action.payload
+      }
     default:
       return state;
   }

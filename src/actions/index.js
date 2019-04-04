@@ -26,6 +26,25 @@ const fetchCustomers = (invoiceAppService, dispatch) => () => {
     .catch((err) => dispatch(customersError(err)));
 };
 
+const addCustomer = (customer) => {
+  return 1;
+};
+
+const customerDeleted = (newCustomers) => {
+  return {
+    type: 'CUSTOMER_DELETED',
+    payload: newCustomers
+  }
+};
+
+const onCustomerDeleted = (invoiceAppService, dispatch) => (idx) => {
+
+  invoiceAppService.deleteCustomer(idx)
+    .then((customers) => dispatch(customerDeleted(customers)))
+    .catch((err) => dispatch(customersError(err)));
+}
+
 export {
-  fetchCustomers
+  fetchCustomers,
+  onCustomerDeleted
 }
