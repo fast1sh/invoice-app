@@ -3,8 +3,9 @@ import ItemPage from "../item-page";
 import ItemTable from "../item-table";
 import { connect } from "react-redux";
 import withInvoiceAppService from "../hoc/with-invoice-app-service";
-import { fetchCustomers, onCustomerDeleted } from "../../actions/index";
+import { fetchCustomers, onCustomerDeleted, onShowAddModal } from "../../actions/index";
 import Loader from "../loader";
+import { bindActionCreators } from "redux";
 
 const customerTableLabels = ['#', 'Name', 'Adress', 'Number'];
 
@@ -24,14 +25,15 @@ class CustomerPageContainer extends Component {
   }
 
   render() {
-    const { customers, loading, onCustomerDeleted } = this.props;
+    const { customers, loading, onCustomerDeleted, onShowAddModal } = this.props;
+    console.log('customerpage', this.props);
 
     if (loading) {
       return <Loader />
     }
 
     return (
-      <ItemPage title="Customer List">
+      <ItemPage title="Customer List" onAdd={onShowAddModal}>
         <ItemTable labels={customerTableLabels} items={customers} onDeleted={onCustomerDeleted} />
       </ItemPage>
     )
@@ -46,7 +48,8 @@ const mapDispatchToProps = (dispatch, { invoiceAppService }) => {
   return {
     fetchCustomers: fetchCustomers(invoiceAppService, dispatch),
     addCustomer: invoiceAppService.addCustomer,
-    onCustomerDeleted: onCustomerDeleted(invoiceAppService, dispatch)
+    onCustomerDeleted: onCustomerDeleted(invoiceAppService, dispatch),
+    onShowAddModal: bindActionCreators(onShowAddModal, dispatch)
   }
 
 };

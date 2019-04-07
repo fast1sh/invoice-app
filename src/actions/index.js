@@ -42,9 +42,23 @@ const onCustomerDeleted = (invoiceAppService, dispatch) => (idx) => {
   invoiceAppService.deleteCustomer(idx)
     .then((customers) => dispatch(customerDeleted(customers)))
     .catch((err) => dispatch(customersError(err)));
-}
+};
+
+const onShowAddModal = () => {
+  return {
+    type: 'SHOW_ADD_MODAL'
+  }
+};
+
+const onCloseAddModal = () => {
+  return {
+    type: 'CLOSE_ADD_MODAL'
+  }
+};
 
 export {
   fetchCustomers,
-  onCustomerDeleted
+  onCustomerDeleted,
+  onShowAddModal,
+  onCloseAddModal
 }

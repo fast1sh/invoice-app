@@ -1,5 +1,6 @@
 const initialState = {
   customers: [],
+  showAddModal: false,
   loading: true,
   error: null
 };
@@ -8,9 +9,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_CUSTOMERS_REQUEST':
       return {
-        customers: [],
-        loading: true,
-        error: null
+        ...state
       };
     case 'FETCH_CUSTOMERS_SUCCESS':
       return {
@@ -27,7 +26,17 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         customers: action.payload
-      }
+      };
+    case 'SHOW_ADD_MODAL':
+      return {
+        ...state,
+        showAddModal: true
+      };
+    case 'CLOSE_ADD_MODAL':
+      return {
+        ...state,
+        showAddModal: false
+      };
     default:
       return state;
   }
