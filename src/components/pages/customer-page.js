@@ -21,6 +21,11 @@ const CustomerPage = (props) => {
 */
 
 class CustomerPageContainer extends Component {
+
+  onSubmit = (value) => {
+    console.log(value);
+  }
+
   componentDidMount() {
     this.props.fetchCustomers();
   }
@@ -36,7 +41,7 @@ class CustomerPageContainer extends Component {
     return (
       <ItemPage title="Customer List" onAdd={onShowAddModal}>
         <ItemTable labels={customerTableLabels} items={customers} onDeleted={onCustomerDeleted} />
-        <AddModal />
+        <AddModal onSubmit={this.onSubmit}/>
       </ItemPage>
     )
   }

@@ -27,6 +27,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         customers: action.payload
       };
+    case 'CUSTOMER_ADDED':
+      return {
+        ...state,
+        showAddModal: false,
+        customers: action.payload
+      }
     case 'SHOW_ADD_MODAL':
       return {
         ...state,

@@ -26,9 +26,20 @@ const fetchCustomers = (invoiceAppService, dispatch) => () => {
     .catch((err) => dispatch(customersError(err)));
 };
 
-const addCustomer = (customer) => {
-  return 1;
+const customerAdded = (newCustomers) => {
+  return {
+    type: 'CUSTOMER_ADDED',
+    payload: newCustomers
+  }
 };
+
+const onCustomerAdded = (invoiceAppService, dispatch) => (customer) => {
+  console.log('CUSTOMER', customer);
+
+  invoiceAppService.addCustomer(customer)
+    .then((customers) => dispatch(customerAdded(customers)))
+    .catch((err) => dispatch(customersError(err)));
+}
 
 const customerDeleted = (newCustomers) => {
   return {
@@ -58,6 +69,7 @@ const onCloseAddModal = () => {
 
 export {
   fetchCustomers,
+  onCustomerAdded,
   onCustomerDeleted,
   onShowAddModal,
   onCloseAddModal
