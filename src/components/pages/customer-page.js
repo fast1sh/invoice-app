@@ -6,6 +6,7 @@ import withInvoiceAppService from "../hoc/with-invoice-app-service";
 import { fetchCustomers, onCustomerDeleted, onShowAddModal } from "../../actions/index";
 import Loader from "../loader";
 import { bindActionCreators } from "redux";
+import AddModal from "../add-modal";
 
 const customerTableLabels = ['#', 'Name', 'Adress', 'Number'];
 
@@ -35,12 +36,13 @@ class CustomerPageContainer extends Component {
     return (
       <ItemPage title="Customer List" onAdd={onShowAddModal}>
         <ItemTable labels={customerTableLabels} items={customers} onDeleted={onCustomerDeleted} />
+        <AddModal />
       </ItemPage>
     )
   }
 }
 
-const mapStateToProps = ({ customers, loading, error }) => {
+const mapStateToProps = ({ customerPage: { customers, loading, error }}) => {
   return { customers, loading, error };
 };
 

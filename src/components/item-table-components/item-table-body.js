@@ -5,7 +5,7 @@ const ItemTableBody = (props) => {
 
   const { items, onEdited, onDeleted } = props;
 
-  console.log('body', onDeleted);
+  console.log('body', props);
 
   return items.map((item, idx) => {
     const itemKeys = Object.keys(item).slice(1);
