@@ -41,6 +41,20 @@ const onCustomerAdded = (invoiceAppService, dispatch) => (customer) => {
     .catch((err) => dispatch(customersError(err)));
 }
 
+const customerEdited = (newCustomers) => {
+  return {
+    type: 'CUSTOMER_EDITED',
+    payload: newCustomers
+  }
+};
+
+const onCustomerEdited = (invoiceAppService, dispatch) => (idx, newCustomer) => {
+  
+  invoiceAppService.editCustomer(idx, newCustomer)
+    .then((customers) => dispatch(customerEdited(customers)))
+    .catch((err) => dispatch(customersError(err)));
+}
+
 const customerDeleted = (newCustomers) => {
   return {
     type: 'CUSTOMER_DELETED',
@@ -67,10 +81,26 @@ const onCloseAddModal = () => {
   }
 };
 
+const onShowEditModal = (idx) => {
+  return {
+    type: 'SHOW_EDIT_MODAL',
+    payload: idx
+  }
+};
+
+const onCloseEditModal = () => {
+  return {
+    type: 'CLOSE_EDIT_MODAL'
+  }
+};
+
 export {
   fetchCustomers,
   onCustomerAdded,
   onCustomerDeleted,
+  onCustomerEdited,
   onShowAddModal,
-  onCloseAddModal
+  onCloseAddModal,
+  onShowEditModal,
+  onCloseEditModal
 }

@@ -8,7 +8,7 @@ import { Field, reduxForm } from "redux-form";
 import withInvoiceAppService from "../hoc/with-invoice-app-service";
 
 let AddForm = (props) => {
-  const { handleSubmit, onCustomerAdded } = props;
+  const { handleSubmit } = props;
   console.log('!!!!!!!!!!!!', handleSubmit);
   return (
     <form onSubmit={handleSubmit}>
@@ -42,6 +42,7 @@ let AddForm = (props) => {
           type="tel"
           placeholder="555-354-2342"
           className="form-control"
+          
           required
         />
       </div>

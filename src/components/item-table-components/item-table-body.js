@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 
 const ItemTableBody = (props) => {
 
-  const { items, onEdited, onDeleted } = props;
+  const { items, onEdit, onDeleted } = props;
 
   return items.map((item, idx) => {
     const itemKeys = Object.keys(item).slice(0);
@@ -21,7 +21,7 @@ const ItemTableBody = (props) => {
           })
         }
         <th>
-          <Button variant="outline-success" size="sm" className="mr-2" onClick={() => onEdited(idx)}>
+          <Button variant="outline-success" size="sm" className="mr-2" onClick={() => onEdit(idx)}>
             <i className="fas fa-pen"></i>
           </Button>
           <Button variant="outline-danger" size="sm" onClick={() => onDeleted(idx)}>

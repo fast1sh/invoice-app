@@ -3,7 +3,6 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import './item-page.css';
 
 const ItemPage = (props) => {
-  console.log('itempage', props);
   return (
     <Container>
       <Row className="mt-5 mb-4" noGutters>

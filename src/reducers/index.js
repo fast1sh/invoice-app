@@ -1,6 +1,8 @@
 const initialState = {
   customers: [],
   showAddModal: false,
+  showEditModal: false,
+  editingCustomerIdx: null,
   loading: true,
   error: null
 };
@@ -33,6 +35,12 @@ const reducer = (state = initialState, action) => {
         showAddModal: false,
         customers: action.payload
       }
+    case 'CUSTOMER_EDITED':
+      return {
+        ...state,
+        showEditModal: false,
+        customers: action.payload
+      }
     case 'SHOW_ADD_MODAL':
       return {
         ...state,
@@ -43,6 +51,18 @@ const reducer = (state = initialState, action) => {
         ...state,
         showAddModal: false
       };
+    case 'SHOW_EDIT_MODAL':
+      return {
+        ...state,
+        showEditModal: true,
+        editingCustomerIdx: action.payload
+      };
+    case 'CLOSE_EDIT_MODAL':
+      return {
+        ...state,
+        showEditModal: false,
+        editingCustomerIdx: null
+      }
     default:
       return state;
   }
