@@ -1,10 +1,13 @@
 import React from "react";
 
-const ItemTableHeader = (fieldsArray) => {
+const ItemTableHeader = (props) => {
+
+  const { labels } = props;
+
   return (
     <tr>
       {
-        fieldsArray.map((field, idx) => {
+        labels.map((field, idx) => {
           return (
             <th className="thead-item" key={idx}>
               {field}

@@ -11,16 +11,6 @@ import EditModal from "../edit-modal/edit-modal";
 
 const customerTableLabels = ['#', 'Name', 'Adress', 'Number'];
 
-/* 
-const CustomerPage = (props) => {
-  return (
-    <ItemPage title="Customer List">
-      <ItemTable labels={customerTableLabels} items={props.customers} />
-    </ItemPage>
-  )
-};
-*/
-
 class CustomerPageContainer extends Component {
 
   componentDidMount() {

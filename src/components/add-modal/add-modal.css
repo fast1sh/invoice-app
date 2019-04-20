@@ -3,6 +3,7 @@
 }
 .modal__button {
   padding: 10px 20px 10px 20px;
+  margin-right: 10px;
 }
 .form-group {
   margin: 15px 0 20px 0;

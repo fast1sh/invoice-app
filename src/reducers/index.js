@@ -41,23 +41,23 @@ const reducer = (state = initialState, action) => {
         showEditModal: false,
         customers: action.payload
       }
-    case 'SHOW_ADD_MODAL':
+    case 'SHOW_ADD_CUSTOMER_MODAL':
       return {
         ...state,
         showAddModal: true
       };
-    case 'CLOSE_ADD_MODAL':
+    case 'CLOSE_ADD_CUSTOMER_MODAL':
       return {
         ...state,
         showAddModal: false
       };
-    case 'SHOW_EDIT_MODAL':
+    case 'SHOW_EDIT_CUSTOMER_MODAL':
       return {
         ...state,
         showEditModal: true,
         editingCustomerIdx: action.payload
       };
-    case 'CLOSE_EDIT_MODAL':
+    case 'CLOSE_EDIT_CUSTOMER_MODAL':
       return {
         ...state,
         showEditModal: false,

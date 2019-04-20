@@ -8,8 +8,9 @@ import withInvoiceAppService from "../hoc";
 import './edit-modal.css';
 
 let EditForm = (props) => {
-  console.log('EDITFORM', props.onSubmit);
-  const { handleSubmit } = props;
+
+  const { handleSubmit, onCancel } = props;
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
@@ -45,6 +46,9 @@ let EditForm = (props) => {
       <Button variant="primary" type="submit" className="modal__button">
         Edit
       </Button>
+      <Button variant="outline-dark" type="button" className="modal__button" onClick={onCancel}>
+        Cancel
+      </Button>
     </form>
   );
 }
@@ -54,15 +58,18 @@ EditForm = reduxForm({
 })(EditForm);
 
 const EditModal = (props) => {
-  const initialValues = props.customers[props.editingCustomerIdx];
+
+  const { showEditModal, onHide, onCustomerEdited, customers, editingCustomerIdx } = props;
+  const initialValues = customers[editingCustomerIdx];
+
   return (
     <React.Fragment>
-      <Modal show={props.showEditModal} onHide={props.onHide}>
+      <Modal show={showEditModal} onHide={onHide}>
         <Modal.Header closeButton>
           <Modal.Title>Edit customer</Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal__body">
-          <EditForm onSubmit={props.onCustomerEdited} initialValues={initialValues}/>
+          <EditForm onSubmit={onCustomerEdited} onCancel={onHide} initialValues={initialValues}/>
         </Modal.Body>
       </Modal>
     </React.Fragment>
@@ -73,7 +80,7 @@ const mapStateToProps = ({ customerPage: { showEditModal, editingCustomerIdx, cu
   return { showEditModal, editingCustomerIdx, customers };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onHide: bindActionCreators(onCloseEditModal, dispatch),
     dispatch
@@ -81,13 +88,15 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  console.log('!!!!STATEPROPS!!!', stateProps);
-  console.log('""""""DISPATCHPROPS"""""', dispatchProps);
-  console.log('?????OWNPROPS?????', ownProps);
+
+  const { editingCustomerIdx } = stateProps;
+  const { dispatch } = dispatchProps;
+  const { invoiceAppService } = ownProps;
+
   return {
     ...stateProps,
     ...dispatchProps,
-    onCustomerEdited: (customer) => onCustomerEdited(ownProps.invoiceAppService, dispatchProps.dispatch)(stateProps.editingCustomerIdx, customer)
+    onCustomerEdited: (customer) => onCustomerEdited(invoiceAppService, dispatch)(editingCustomerIdx, customer)
   }
 }
 

@@ -71,28 +71,30 @@ const onCustomerDeleted = (invoiceAppService, dispatch) => (idx) => {
 
 const onShowAddModal = () => {
   return {
-    type: 'SHOW_ADD_MODAL'
+    type: 'SHOW_ADD_CUSTOMER_MODAL'
   }
 };
 
 const onCloseAddModal = () => {
   return {
-    type: 'CLOSE_ADD_MODAL'
+    type: 'CLOSE_ADD_CUSTOMER_MODAL'
   }
 };
 
 const onShowEditModal = (idx) => {
   return {
-    type: 'SHOW_EDIT_MODAL',
+    type: 'SHOW_EDIT_CUSTOMER_MODAL',
     payload: idx
   }
 };
 
 const onCloseEditModal = () => {
   return {
-    type: 'CLOSE_EDIT_MODAL'
+    type: 'CLOSE_EDIT_CUSTOMER_MODAL'
   }
 };
+
+
 
 export {
   fetchCustomers,

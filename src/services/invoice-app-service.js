@@ -17,6 +17,29 @@ export default class InvoiceAppService {
     }
   ];
 
+  products = [
+    {
+      name: 'Phone Holder',
+      price: 9.99
+    },
+    {
+      name: 'Parachute Pants',
+      price: 29.99
+    },
+    {
+      name: 'Pet Rock',
+      price: 5.99
+    },
+    {
+      name: 'Egg Timer',
+      price: 15.99
+    },
+    {
+      name: 'Neon Green Hat',
+      price: 21.99
+    }
+  ]
+
   getCustomers = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -62,6 +85,54 @@ export default class InvoiceAppService {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(this.customers);
+      }, 10);
+    });
+  }
+
+  getProducts = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this.products);
+      }, 700);
+    });
+  };
+
+  addProduct = ({ name, price }) => {
+    this.products = [
+      ...this.products,
+      { name, price }
+    ];
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this.products);
+      }, 10);
+    });
+  };
+
+  deleteProduct = (idx) => {
+    this.products = [
+      ...this.products.slice(0, idx),
+      ...this.products.slice(idx + 1)
+    ];
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this.products);
+      }, 10);
+    });
+  };
+
+  editProduct = (idx, { name, price }) => {
+    this.products = [
+      ...this.products.slice(0, idx),
+      { name, price },
+      ...this.products.slice(idx + 1)
+    ];
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this.products);
       }, 10);
     });
   }

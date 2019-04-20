@@ -9,7 +9,7 @@ const ItemTable = (props) => {
   return (
     <Table>
       <thead>
-        { ItemTableHeader(labels) }
+        <ItemTableHeader labels={labels}/>
       </thead>
       <tbody>
         <ItemTableBody items={items} onEdit={onEdit} onDeleted={onDeleted} />
