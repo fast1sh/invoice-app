@@ -13,7 +13,7 @@ export default class App extends Component {
           <Header />
 
           <Switch>
-            <Route path="/customers" component={CustomerPage} exact/>
+            <Route path="/" component={CustomerPage}/>
           </Switch>
         </div>
       </Router>
