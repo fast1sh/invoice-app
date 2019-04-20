@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Table, Container, Row, Col } from "react-bootstrap";
 import './item-table.css';
 import { ItemTableHeader, ItemTableBody } from "../item-table-components";
 

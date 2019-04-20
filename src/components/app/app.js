@@ -14,7 +14,6 @@ export default class App extends Component {
 
           <Switch>
             <Route path="/customers" component={CustomerPage} exact/>
-            <Route path="/products" component={ProductPage} exact/>
           </Switch>
         </div>
       </Router>

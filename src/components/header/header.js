@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Nav, Navbar } from "react-bootstrap";
+import { Container, Row, Col, Nav, Navbar, OverlayTrigger, Tooltip } from "react-bootstrap";
 import './header.css';
 
 const Header = (props) => {
@@ -13,10 +13,18 @@ const Header = (props) => {
               <Navbar.Collapse>
                 <Nav>
                   <Nav.Item>
-                    <Nav.Link href="invoices">Invoices</Nav.Link>
+                    <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip-disabled">In progress</Tooltip>}>
+                        <div>
+                        <Nav.Link href="invoices" disabled>Invoices</Nav.Link>
+                        </div>
+                    </OverlayTrigger>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link href="products">Products</Nav.Link>
+                    <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip-disabled">In progress</Tooltip>}>
+                      <div>
+                        <Nav.Link href="products" disabled>Products</Nav.Link>
+                      </div>
+                    </OverlayTrigger>
                   </Nav.Item>
                   <Nav.Item>
                     <Nav.Link href="customers">Customers</Nav.Link>
