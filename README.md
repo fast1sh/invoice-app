@@ -1,4 +1,4 @@
-# Invoice React app [(live demo)](https://invoice-app.netlify.com/) [![Netlify Status](https://api.netlify.com/api/v1/badges/73723159-b9b0-4acf-9e24-f51ccdd9cde0/deploy-status)](https://app.netlify.com/sites/invoice-app/deploys)
+# Invoice App (React + Redux) [(live demo)](https://invoice-app.netlify.com/) [![Netlify Status](https://api.netlify.com/api/v1/badges/73723159-b9b0-4acf-9e24-f51ccdd9cde0/deploy-status)](https://app.netlify.com/sites/invoice-app/deploys)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
