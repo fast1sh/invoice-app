@@ -75,13 +75,12 @@ export default class InvoiceAppService {
   };
 
   editCustomer = (idx, { name, adress, number }) => {
-    console.log('!!!', idx);
     this.customers = [
       ...this.customers.slice(0, idx),
       { name, adress, number },
       ...this.customers.slice(idx + 1)
     ];
-    console.log('???', this.customers);
+
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(this.customers);

@@ -34,7 +34,6 @@ const customerAdded = (newCustomers) => {
 };
 
 const onCustomerAdded = (invoiceAppService, dispatch) => (customer) => {
-  console.log('CUSTOMER', customer);
 
   invoiceAppService.addCustomer(customer)
     .then((customers) => dispatch(customerAdded(customers)))
